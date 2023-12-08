@@ -7,21 +7,11 @@ into something that can be barcode collapsed and mapped
 
 # pylint: disable=fixme
 
-# transitionning to python2/python3 support
-# uncomment from this compatibility import list, as py3/py2 support progresses
 from __future__ import print_function
 from __future__ import division
-# from __future__  import absolute_import
-# from __future__  import unicode_literals
-# from future import standard_library
-# from future.builtins import builtins
-# from future.builtins import utils
-
 from collections import Counter
-# from collections import defaultdict
 from collections import OrderedDict
 from collections import namedtuple
-from itertools import izip
 import gzip
 import os
 from optparse import OptionParser
@@ -330,7 +320,7 @@ def _hamming(matching_function, word1, word2):
     if len(word1) < len(word2):
         raise_with_traceback(HammingUnequalLengthsValueError(word1, word2))
     return sum(not matching_function(letter1, letter2)
-               for letter1, letter2 in izip(word1, word2))
+               for letter1, letter2 in zip(word1, word2))
 
 
 def hamming_strict(word1, word2):
